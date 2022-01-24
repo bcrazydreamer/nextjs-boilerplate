@@ -1,0 +1,44 @@
+{
+  "name": "next-boilerplate",
+  "private": true,
+  "scripts": {
+    "dev": "NODE_ENV=development node ./server",
+    "build": "NODE_ENV=production next build ./client",
+    "start": "NODE_ENV=production node ./server",
+    "lint": "next lint ./client",
+    "prettier": "prettier \"**/*.{js,ts}\"",
+    "prettier:write": "yarn prettier --write"
+  },
+  "lint-staged": {
+    "**/*.{js,ts,json,md}": [
+      "prettier --write"
+    ],
+    "src/**/*.{js,jsx}": [
+      "eslint --quiet"
+    ]
+  },
+  "dependencies": {
+    "@emotion/react": "^11.8.2",
+    "@emotion/styled": "^11.8.1",
+    "@mui/material": "^5.5.1",
+    "@mui/styles": "^5.5.1",
+    "compression": "^1.7.4",
+    "cookie-parser": "^1.4.6",
+    "dotenv": "^16.0.0",
+    "express": "^4.17.3",
+    "helmet": "^5.0.2",
+    "lodash": "^4.17.21",
+    "next": "12.1.0",
+    "nodemon": "^2.0.15",
+    "react": "17.0.2",
+    "react-dom": "17.0.2",
+    "sass": "^1.49.9"
+  },
+  "devDependencies": {
+    "eslint": "8.11.0",
+    "eslint-config-next": "12.1.0",
+    "husky": "^7.0.4",
+    "lint-staged": "^12.3.5",
+    "prettier": "^2.5.1"
+  }
+}

@@ -1,0 +1,20 @@
+#!/bin/sh
+
+# in case husky not init
+if [ ! -f './.husky/_/husky.sh' ]; then
+  yarn husky install
+fi
+
+. "$(dirname "$0")/_/husky.sh"
+
+branch="$(git rev-parse --abbrev-ref HEAD)"
+
+if [ "$branch" = "main" ] ; then
+  echo "You can't commit directly to main branch"
+  exit 1
+fi
+
+# run hooks when files staged
+if [[ $(git diff --cached --name-only) ]]; then
+    yarn lint-staged
+fi
